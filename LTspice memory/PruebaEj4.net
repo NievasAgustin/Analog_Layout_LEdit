@@ -1,0 +1,22 @@
+*---------------------------------
+* Parameters and models
+*---------------------------------
+.param SUPPLY=5.0
+.temp 70
+.model n1 nmos level=1
+.model p1 pmos level=1
+*--------------------------------
+* Simulation netlist
+*--------------------------------
+Vdd vdd gnd 'SUPPLY'
+
+M1 uno vdd gnd gnd n1 W=100u L=50u
+M2 dos vdd uno gnd n1 W=100u L=50u
+M3 dos vdd vdd gnd n1 W= 100u L=50u
+*-------------------------------
+* Stimulus
+*-------------------------------
+
+.trans 1ps 800ps
+
+.end
